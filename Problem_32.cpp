@@ -35,7 +35,7 @@ void PrintArrays(int arr[100], int Length)
 int main()
 {
     // Seeds the random number generator in C++ , called only once
-    //srand((unsigned)time(NULL));
+    srand((unsigned)time(NULL));
     int arr[100], Length;
 
     FullArrayWithRandomNumbers(arr, Length);
