@@ -19,7 +19,7 @@ void FullArrayWithRandomNumbers(int arr[100], int& arrLength)
 void CopyArrayInReversedOrder(int arr[100], int arr2[100], int Length)
 {
     int size = Length - 1;
-    for (int i = 0; i < Length; i++)\
+    for (int i = 0; i < Length; i++)
     {
         arr2[i] = arr[size];
         size--;
