@@ -12,10 +12,12 @@ int ReadPositveNumber(string Message)
     } while (nbr < 0);
     return nbr;
 }
+
 int randomNumber(int to, int from)
 {
     return (rand() % (from - to + 1) + to);
 }
+
 void FillArrayWithRandomNumbers(int arr[100], int& arrLength)
 {
     arrLength = ReadPositveNumber("Enter number of elements :\n");
@@ -30,17 +32,20 @@ void addArrayElement(int Number, int arr[100], int& arrLength)
     arrLength++;
     arr[arrLength - 1] = Number;
 }
+
 void copyArrayUsingAddarrayElement(int arrSource[100], int arrDestinatoin[100], int arrLength, int &arr2Length)
 {
     for (int i = 0; i < arrLength; i++)
         addArrayElement(arrSource[i], arrDestinatoin, arr2Length);
 
 }
+
 void PrintArray(int arr[100], int Length)
 {
     for (int i = 0; i < Length; i++)
         cout << arr[i] << " ";
 }
+
 int main()
 {
     srand((unsigned)time(NULL));
