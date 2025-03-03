@@ -137,7 +137,7 @@ enWinner    WhoWonTheRound(stRoundInfo RoundInfo)
     return (enWinner::Player);
 }
 
-string  WinnerName(enWinner Winner)
+string      WinnerName(enWinner Winner)
 {
     string ArrWinnerName[3] = {"Draw", "Player", "Computer"};
     return (ArrWinnerName[Winner]);
@@ -148,7 +148,7 @@ void    ResetScreen()
     // clear in Secreen ?
     // and return in Secreen black ?
     system("cls");
-    system("color 0F");
+    system("color 0F");//turn screen to Black
 }
 
 enWinner    WhoWonTheGame(short PlayerWinTime, short ComputerWinTime)
