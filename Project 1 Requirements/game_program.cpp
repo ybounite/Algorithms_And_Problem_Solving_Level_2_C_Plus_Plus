@@ -3,6 +3,7 @@
 using namespace std;
 
 enum enGameChoice { Stone = 1, Paper = 2, Scissor = 3 };
+
 enum enWinner { Draw = 0, Player = 1, Computer = 2 };
 
 struct stGameResults
