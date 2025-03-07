@@ -3,13 +3,23 @@
 using namespace std;
 
 enum	enQuizzLevel { Easy = 1 , Mad = 2, Hard = 3, Mix = 4};
-enum	enOperations { Add = 1, Sub = 2, Mul = 3, Div = 4, Mix = 5};
+enum	enOperations { Add = 1, Sub = 2, Mul = 3, Div = 4, Mixe = 5};
 
 struct	stQuizz
 {
-	enQuizzLevel QuestionLevel;
-	enOperations Operation;
+	enQuizzLevel	QuestionLevel;
+	enOperations	Operation;
+	short			GeneratNumber1;
+	short			GeneratNumber2;
 };
+
+string tabs(short HowManyTabs)
+{
+	string tabs;
+	for (short counter = 0; counter < HowManyTabs; counter++)
+		tabs += "\t";
+	return tabs;
+}
 
 short	ReadHowManyQuestions(string Message)
 {
@@ -40,7 +50,9 @@ enOperations	ReadOperation()
 	short Operation;
 	do 
 	{
-		cout << "Enter OPeration Type : Add [1], Sub [2] , Mul [3], Mix [5] ?";
+		cout << tabs(2) << "Enter OPeration Type ? " << endl;
+		cout <<  "Add [1], Sub [2] , Mul [3], Mix [5] ?" << endl;
+		cout << "Enter your choise : ";
 		cin >> Operation;
 	}while (Operation < 0 || Operation > 5);
 	return ((enOperations)Operation);
@@ -52,27 +64,43 @@ void	ResetSecreen()
 	system("color 0F");
 }
 
-string tabs(short HowManyTabs)
-{
-	string tabs;
-	for (short counter = 0; counter < HowManyTabs; counter++)
-		tabs += "\t";
-	return tabs;
-}
+
 
 short RandomNumber(short To, short From)
 {
 	return (rand() % (From - To - 1) + To);
 }
 
+// short	AddOperation(short Number1, short Number2)
+// {
+
+// }
+// short	SubtractionOperation()
+// {
+
+// }
+// short	multiplyOperation()
+// {
+
+// }
+// short	MixOpearation()
+// {
+
+// }
+
 stQuizz	PlayGameMath(short HowManyQuestions)
 {
-	stQuizz Quizz;
-	for (short Count = 0; Count < HowManyQuestions; Count++)
+	stQuizz QuizzInfo;
+
+	for (short Count = 1; Count <= HowManyQuestions; Count++)
 	{
-		
+		cout << "Question [" << Count << "/" << HowManyQuestions << "]" << endl;
+		QuizzInfo.QuestionLevel = ReadQuestionsLevel();
+		QuizzInfo.Operation = ReadOperation();
+		QuizzInfo.GeneratNumber1 = RandomNumber(1, 10);
+		QuizzInfo.GeneratNumber2 = RandomNumber(1, 10);
 	}
-	return Quizz;
+	return QuizzInfo;
 }
 
 void	StartGameMath()
@@ -83,7 +111,9 @@ void	StartGameMath()
 	{
 		ResetSecreen();
 		stQuizz Quizz = PlayGameMath(ReadHowManyQuestions("How Many Questiond do you want to answer ?"));
-		cout << tabs(4) << "Do you want to play again Y/N \n?" ;
+
+		cout << tabs(0) << "Do you want to play again Y/N" << endl;
+		cin >> PlayAgain;
 	} while (PlayAgain == 'y' || PlayAgain == 'Y');
 	
 }
